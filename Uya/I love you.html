@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Uyanda ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #080505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        .music-button {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1000;
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+
+            color: white;
+            font-size: 22px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .music-button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.75)),
+                url("Uya.png");
+
+            background-size: cover;
+            background-position: center;
+
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at center,
+                    transparent 20%,
+                    rgba(0, 0, 0, 0.5) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 900px;
+
+            padding: 30px;
+
+            animation: fadeUp 2s ease;
+        }
+
+        .small-title {
+            font-size: 15px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(65px, 12vw, 140px);
+
+            font-weight: 600;
+
+            line-height: 0.9;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(25px, 4vw, 42px);
+
+            font-weight: 400;
+
+            font-style: italic;
+        }
+
+        .scroll {
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            z-index: 5;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            opacity: 0.8;
+
+            animation: bounce 2s infinite;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            min-height: 100vh;
+
+            padding: 100px 8%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 950px;
+
+            text-align: center;
+        }
+
+        .label {
+            color: #d9a86c;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(45px, 6vw, 75px);
+
+            font-weight: 500;
+
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 17px;
+
+            line-height: 2;
+
+            font-weight: 300;
+
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        /* =========================
+           THANK YOU
+        ========================= */
+
+        .thank-you {
+            background:
+                linear-gradient(rgba(15, 8, 8, 0.96),
+                    rgba(25, 10, 12, 0.96));
+        }
+
+        .heart {
+            font-size: 55px;
+
+            margin-bottom: 20px;
+
+            animation: heartbeat 1.8s infinite;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            position: relative;
+
+            background: #120909;
+        }
+
+        .message-box {
+            padding: 60px;
+
+            border: 1px solid rgba(217, 168, 108, 0.3);
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.04),
+                    rgba(255, 255, 255, 0.01));
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.5);
+
+            border-radius: 5px;
+        }
+
+        .message-box p {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(22px, 3vw, 30px);
+
+            line-height: 1.7;
+
+            color: white;
+        }
+
+        .signature {
+            margin-top: 35px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 32px;
+
+            font-style: italic;
+
+            color: #d9a86c;
+        }
+
+        /* =========================
+           PHOTO SECTION
+        ========================= */
+
+        .photo-section {
+            min-height: 100vh;
+
+            padding: 0;
+
+            position: relative;
+
+            background: black;
+        }
+
+        .photo-section img {
+            width: 100%;
+
+            height: 100vh;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.65);
+        }
+
+        .photo-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.65));
+        }
+
+        .photo-overlay h3 {
+            font-size: clamp(50px, 8vw, 100px);
+
+            text-shadow:
+                0 5px 30px black;
+        }
+
+        /* =========================
+           PROMISE
+        ========================= */
+
+        .promise {
+            background:
+                radial-gradient(circle at center,
+                    #2a1114,
+                    #090505 70%);
+        }
+
+        .promise-list {
+            margin-top: 45px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .promise-card {
+            padding: 35px 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            background: rgba(255, 255, 255, 0.03);
+
+            transition: 0.4s;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(217, 168, 108, 0.5);
+        }
+
+        .promise-card span {
+            font-size: 35px;
+
+            display: block;
+
+            margin-bottom: 15px;
+        }
+
+        .promise-card h4 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .promise-card p {
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final {
+            min-height: 100vh;
+
+            position: relative;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.9)),
+                url("Uya.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            text-align: center;
+        }
+
+        .final h3 {
+            font-size: clamp(55px, 9vw, 110px);
+
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .forever {
+            margin-top: 40px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 35px;
+
+            font-style: italic;
+
+            color: #d9a86c;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            background: #050303;
+
+            font-size: 12px;
+
+            color: rgba(255, 255, 255, 0.5);
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 18px;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+
+            z-index: 999;
+
+            animation: floatHeart 8s linear forwards;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, -10px);
+            }
+
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0) rotate(0deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh) rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 80px 25px;
+            }
+
+            .message-box {
+                padding: 35px 25px;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .music-button {
+                top: 15px;
+                right: 15px;
+
+                width: 48px;
+                height: 48px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+
+    <audio id="loveSong" loop>
+        <source src="When It Comes To You.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-button" id="musicButton" onclick="toggleMusic()">
+        ♫
+    </button>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A little something for
+            </div>
+
+            <h1>Uyanda</h1>
+
+            <h2>
+                Thank you for choosing me ❤️
+            </h2>
+
+        </div>
+
+        <div class="scroll">
+            Scroll down ↓
+        </div>
+
+    </section>
+
+
+    <!-- THANK YOU -->
+
+    <section class="thank-you">
+
+        <div class="section-content">
+
+            <div class="heart">
+                ❤️
+            </div>
+
+            <div class="label">
+                From my heart
+            </div>
+
+            <h3>
+                Thank You
+            </h3>
+
+            <p>
+                Uyanda, I just want you to know how much your decision
+                means to me. When you agreed to be my girlfriend,
+                you gave me something incredibly special — the chance
+                to build something beautiful with you.
+            </p>
+
+            <br>
+
+            <p>
+                I appreciate you more than words can explain.
+                Thank you for giving me a chance, for trusting me,
+                and for allowing me to call you my girlfriend.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PERSONAL MESSAGE -->
+
+    <section class="message">
+
+        <div class="section-content">
+
+            <div class="label">
+                A message for you
+            </div>
+
+            <div class="message-box">
+
+                <p>
+                    "I don't want this to just be a relationship
+                    that has a beginning. I want it to be a journey
+                    where we create memories, laugh together,
+                    support each other, grow together and continue
+                    choosing each other every day."
+                </p>
+
+                <div class="signature">
+                    With all my heart ❤️
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTO -->
+
+    <section class="photo-section">
+
+        <img src="Uya.png" alt="A special memory">
+
+        <div class="photo-overlay">
+
+            <div>
+
+                <div class="label">
+                    One beautiful beginning
+                </div>
+
+                <h3>
+                    You & Me
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMISES -->
+
+    <section class="promise">
+
+        <div class="section-content">
+
+            <div class="label">
+                What I want you to know
+            </div>
+
+            <h3>
+                I Choose You
+            </h3>
+
+            <p>
+                This is only the beginning of our story.
+                I want to make the most of every moment
+                we get to share.
+            </p>
+
+
+            <div class="promise-list">
+
+                <div class="promise-card">
+
+                    <span>🤍</span>
+
+                    <h4>
+                        Respect
+                    </h4>
+
+                    <p>
+                        I will always value you, your feelings,
+                        your dreams and the person you are.
+                    </p>
+
+                </div>
+
+
+                <div class="promise-card">
+
+                    <span>🤝</span>
+
+                    <h4>
+                        Support
+                    </h4>
+
+                    <p>
+                        I want to be someone you can count on
+                        through the good days and difficult ones.
+                    </p>
+
+                </div>
+
+
+                <div class="promise-card">
+
+                    <span>😂</span>
+
+                    <h4>
+                        Happiness
+                    </h4>
+
+                    <p>
+                        I want us to create memories that make
+                        us smile whenever we look back.
+                    </p>
+
+                </div>
+
+
+                <div class="promise-card">
+
+                    <span>❤️</span>
+
+                    <h4>
+                        Love
+                    </h4>
+
+                    <p>
+                        I will never take your presence in my life
+                        for granted.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+        <div class="section-content">
+
+            <div class="label">
+                To my girlfriend
+            </div>
+
+            <h3>
+                Uyanda ❤️
+            </h3>
+
+            <p>
+                Thank you for saying yes.
+                Thank you for choosing me.
+                And most importantly,
+                thank you for becoming part of my life.
+            </p>
+
+            <div class="forever">
+                Here's to us. ✨
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        Made with love, especially for Uyanda ❤️
+
+    </footer>
+
+
+    <script>
+
+        const music = document.getElementById("loveSong");
+        const musicButton = document.getElementById("musicButton");
+
+        let playing = false;
+
+
+        function toggleMusic() {
+
+            if (playing) {
+
+                music.pause();
+
+                musicButton.innerHTML = "♫";
+
+                playing = false;
+
+            } else {
+
+                music.play();
+
+                musicButton.innerHTML = "❚❚";
+
+                playing = true;
+
+            }
+
+        }
+
+
+        /* Floating hearts */
+
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            heart.innerHTML =
+                Math.random() > 0.5 ? "❤️" : "♡";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (12 + Math.random() * 20) + "px";
+
+            heart.style.animationDuration =
+                (6 + Math.random() * 5) + "s";
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 11000);
+
+        }
+
+
+        setInterval(createHeart, 1200);
+
+    </script>
+
+</body>
+
+</html>
